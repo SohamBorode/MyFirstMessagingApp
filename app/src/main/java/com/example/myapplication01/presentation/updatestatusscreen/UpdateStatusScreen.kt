@@ -193,63 +193,41 @@ fun UpdateScreen() {
     val suggChaList = listOf(
         SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
         ),
         SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
+        ), SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
+        ), SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
+        ), SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
+        ), SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
+        ), SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
+        ), SuggChaDesignModel(
             sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),
-        SuggChaDesignModel(
-            sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),SuggChaDesignModel(
-            sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),SuggChaDesignModel(
-            sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
-        ),SuggChaDesignModel(
-            sugChaImg = R.drawable.ajay_devgn,
-            SugChaName = "Bolo Juba Kesari",
-            SugChaFollCount = "10.6 M folowers"
+            sugChaName = "Bolo Juba Kesari",
+            sugChaFollCount = "10.6 M folowers"
         )
 
-        )
+
+    )
 
     val scrollState = rememberScrollState()
 
@@ -337,9 +315,11 @@ fun UpdateScreen() {
             }
             Spacer(modifier = Modifier.height(32.dp))
 
-            LazyColumn(modifier = Modifier
-                .fillMaxWidth()
-                .height(400.dp)) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+            ) {
                 items(items = channelsList) { it3 ->
                     ChannelItemDesign(it3)
                 }
@@ -347,13 +327,15 @@ fun UpdateScreen() {
             HorizontalDivider()
             Spacer(modifier = Modifier.height(25.dp))
             Text(text = "Suggested channels:", fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
-            // the sussegted channels lasybox
+            // the suggested channels lasybox
             Spacer(modifier = Modifier.height(20.dp))
             LazyColumn(
-                modifier = Modifier.fillMaxWidth().height(300.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(300.dp),
             ) {
-                items(items = suggChaList){
-                    it3 -> SuggestedChaDesign(it3)
+                items(items = suggChaList) { it3 ->
+                    SuggestedChaDesign(it3)
                 }
             }
 
