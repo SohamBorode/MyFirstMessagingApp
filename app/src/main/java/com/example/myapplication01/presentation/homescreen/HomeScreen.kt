@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication01.R
-import com.example.myapplication01.presentation.bottomnavigation.BottomNavigation
+import com.example.myapplication01.presentation.bottomnavigation.BottomNavigationB
 
 @Composable
 @Preview(showSystemUi = true)
@@ -170,7 +170,7 @@ fun HomeScreen() {
 
             }
         },
-        bottomBar = { BottomNavigation() }
+        bottomBar = { BottomNavigationB() }
     ) {
 
         Column(modifier = Modifier.padding(it)) {

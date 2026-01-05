@@ -37,7 +37,7 @@ import com.example.myapplication01.R
 
 @Composable
 @Preview(showSystemUi = true)
-fun TopBarB() {
+fun TopBarC() {
 
     var isSearching by remember { mutableStateOf(false) }
     var search by remember { mutableStateOf("") }
@@ -46,47 +46,24 @@ fun TopBarB() {
     var showMenu by remember { mutableStateOf(false) }
     var selectedMenuOption by remember { mutableStateOf("") }
 
-    var cameraBtn by remember { mutableStateOf(false) }
 
-    val cameraLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.TakePicturePreview()
-    )
-    { bitmap ->
-        if (bitmap != null) {
-            /**
-             * I will get image here
-             * I can save or process it
-             **/
-        }
-        // Reset the button state after the camera returns
-        cameraBtn = false
-    }
 
-    // This safely launches the camera only when cameraBtn becomes true
-    LaunchedEffect(cameraBtn) {
-        if (cameraBtn) {
-            cameraLauncher.launch()
-        }
-    }
+
+
+
 
 // UI store in variable
     val topBarUI = @Composable {
         // This structure now works correctly with Arrangement.SpaceBetween
         Text(
-            text = "Updates",
+            text = "Communities",
             fontWeight = FontWeight.Bold,
             fontSize = 28.sp,
             modifier = Modifier.padding(start = 12.dp)
         )
 
         Row(verticalAlignment = Alignment.CenterVertically) {
-            IconButton(onClick = { cameraBtn = true }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.camera),
-                    contentDescription = "Open Camera",
-                    modifier = Modifier.size(24.dp)
-                )
-            }
+
             IconButton(onClick = { isSearching = true }) {
 
                 Icon(
@@ -110,9 +87,6 @@ fun TopBarB() {
                     modifier = Modifier.align(Alignment.TopEnd) // Aligns menu to the right
                 ) {
                     listOf(
-                        "Create Channel",
-                        "Status privacy",
-                        "Started",
                         "Setting"
                     ).forEach { item ->
                         DropdownMenuItem(text = { Text(text = item) }, onClick = {
@@ -135,8 +109,8 @@ fun TopBarB() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             // This is the logic you wanted to preserve
-            if (isSearching || showMenu || cameraBtn) {
-                if (isSearching && !showMenu && !cameraBtn) {
+            if (isSearching || showMenu) {
+                if (isSearching && !showMenu) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
@@ -163,7 +137,7 @@ fun TopBarB() {
                         }
                     }
                 }
-                else if (showMenu && !isSearching && !cameraBtn) {
+                else if (showMenu && !isSearching) {
                     topBarUI()
 
                 }
@@ -171,7 +145,7 @@ fun TopBarB() {
                 // else if (cameraBtn && !isSearching && !showMenu) { }
 
             } else {
-               topBarUI()
+                topBarUI()
             }
         }
         HorizontalDivider()

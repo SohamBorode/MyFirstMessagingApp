@@ -92,4 +92,3 @@ fun BottomNavigationB() {
     }
 }
 
-annotation class BottomNavigation

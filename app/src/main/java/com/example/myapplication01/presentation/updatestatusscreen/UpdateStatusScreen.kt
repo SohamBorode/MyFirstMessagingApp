@@ -1,5 +1,6 @@
 package com.example.myapplication01.presentation.updatestatusscreen
 
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,7 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication01.R
-import com.example.myapplication01.presentation.bottomnavigation.BottomNavigation
+import com.example.myapplication01.presentation.bottomnavigation.BottomNavigationB
 
 @Composable
 @Preview(showSystemUi = true)
@@ -231,29 +232,34 @@ fun UpdateScreen() {
 
     val scrollState = rememberScrollState()
 
-    Scaffold(floatingActionButton = {
-        FloatingActionButton(
-            onClick = {}, containerColor = colorResource(
-                id = R.color.light_green
-            ), modifier = Modifier.size(65.dp), contentColor = Color.White
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.baseline_photo_camera_24),
-                contentDescription = null,
-                modifier = Modifier.size(32.dp)
-            )
-        }
-    }, bottomBar = {
-        BottomNavigation()
-    }, topBar = {
-        TopBarB()
-    }) {
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {}, containerColor = colorResource(
+                    id = R.color.light_green
+                ), modifier = Modifier.size(65.dp), contentColor = Color.White
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_photo_camera_24),
+                    contentDescription = null,
+                    modifier = Modifier.size(32.dp)
+                )
+            }
+        },
+        bottomBar = {
+            BottomNavigationB()
+        },
+        topBar = {
+            TopBarB()
+        })
+    {
         Column(
             modifier = Modifier
                 .padding(it)
                 .fillMaxWidth()
                 .verticalScroll(scrollState)
-        ) {
+        )
+        {
             Text(
                 text = "Status",
                 fontWeight = FontWeight.Bold,
