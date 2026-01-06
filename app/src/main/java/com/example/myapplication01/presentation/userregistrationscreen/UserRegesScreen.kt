@@ -38,10 +38,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.myapplication01.presentation.navigation.Routes
 
 @Composable
-@Preview(showSystemUi = true)
-fun UserRegesScreen() {
+//@Preview(showSystemUi = true)
+fun UserRegesScreen(
+    navHostController: NavHostController
+) {
     var expanded by remember {
         mutableStateOf(false)
     }
@@ -156,7 +160,7 @@ fun UserRegesScreen() {
         Text(text = "Carrier charge may apply", color = Color.Gray)
         Spacer(modifier = Modifier.height(25.dp))
         Button(
-            onClick = {/*TODO*/
+            onClick = {navHostController.navigate(Routes.HomeScreen)
             },
             modifier = Modifier.size(90.dp, 40.dp),
             shape = RoundedCornerShape(10.dp),

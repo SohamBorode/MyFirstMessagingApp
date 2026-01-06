@@ -23,11 +23,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.myapplication01.R
+import com.example.myapplication01.presentation.navigation.Routes
 
 @Composable
-@Preview(showSystemUi = true)
-fun WelcomeScreen() {
+//@Preview(showSystemUi = true)
+fun WelcomeScreen(
+    navHostController: NavHostController
+) {
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -57,7 +62,7 @@ fun WelcomeScreen() {
         Spacer(modifier = Modifier.height(24.dp))
 
         Button(
-            onClick = {/*TODO*/ },
+            onClick = {navHostController.navigate(Routes.UserRegesScreen) },
             modifier = Modifier.size(200.dp, 45.dp),
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.dark_green))
